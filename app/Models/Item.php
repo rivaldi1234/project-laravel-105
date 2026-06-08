@@ -15,9 +15,9 @@ class Item extends Model
     // Mendaftarkan kolom yang boleh diisi data
     protected $fillable = [
         'name',
-        'category_id',
+        'quantity',
         'price',
-        'stock',
+        'category_id',
     ];
 
     // Relasi balik ke model Category
