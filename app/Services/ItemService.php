@@ -6,9 +6,15 @@ use App\Models\Item;
 use Illuminate\Database\Eloquent\Collection;
 
 class ItemService {
-    public function all(): Collection {
-        return Item::with('category')->get();
+    public function all($categoryId = null): Collection {
+        $query = Item::with('category');
+
+        if ($categoryId) {
+            $query->where('category_id', $categoryId);
         }
+
+        return $query->get();
+    }
     public function find(int $id): Item {
         return Item::with('category')->findOrFail($id);
         }

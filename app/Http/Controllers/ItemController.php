@@ -6,6 +6,7 @@ use App\Http\Requests\StoreItemRequest;
 use App\Http\Requests\UpdateItemRequest;
 use App\Services\ItemService;
 use App\Http\Controllers\Api\BaseController;
+use Illuminate\Http\Request;
 
 class ItemController extends BaseController
 {
@@ -16,9 +17,9 @@ class ItemController extends BaseController
         $this->svc = $svc;
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        return $this->success($this->svc->all());
+        return $this->success($this->svc->all($request->category_id));
     }
 
     public function store(StoreItemRequest $req)
