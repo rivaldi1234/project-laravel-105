@@ -19,6 +19,9 @@ class ItemController extends BaseController
 
     public function index(Request $request)
     {
+        // [SOAL 5] Contoh penggunaan dd() untuk debugging:
+        // dd($request->all());   ← uncomment baris ini untuk debugging, hapus setelah selesai
+
         return $this->success($this->svc->all($request->category_id));
     }
 
@@ -47,6 +50,6 @@ class ItemController extends BaseController
     public function destroy($id)
     {
         $this->svc->delete($id);
-        return $this->success(null, "Item dihapus", 204);
+        return response()->json(null, 204);
     }
 }
