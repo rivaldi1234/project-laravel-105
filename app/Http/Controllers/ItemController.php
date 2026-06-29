@@ -19,9 +19,6 @@ class ItemController extends BaseController
 
     public function index(Request $request)
     {
-        // [SOAL 5] Contoh penggunaan dd() untuk debugging:
-        // dd($request->all());   ← uncomment baris ini untuk debugging, hapus setelah selesai
-
         return $this->success($this->svc->all($request->category_id));
     }
 

@@ -56,7 +56,7 @@ class ItemApiTest extends TestCase
             ->getJson('/api/v1/items')
             ->assertStatus(200)
             ->assertJsonStructure([
-                'status',
+                'success',
                 'data',
                 'message',
             ]);
